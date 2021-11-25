@@ -1,17 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+import Logo from './components/logo'
+import Wyszukiwarka from './components/wyszukiwarka'
+import Rejestracja from './components/rejestracja'
+import Logowanie from './components/logowanie'
+import Stopka from './components/stopka'
+import Filmy from './components/filmy'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <div>
+        <Logo />
+    </div>
+    <Wyszukiwarka />
+    <Rejestracja />
+    <Logowanie />
+    <div style={{textAlign: 'center', display: "flex", flexWrap: "wrap", marginLeft: "4%", float: "left", justifyContent: "space-between"}}> <Filmy /> <Filmy /> <Filmy /> <Filmy /> <Filmy /> <Filmy /> </div>
+    <Stopka />
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
