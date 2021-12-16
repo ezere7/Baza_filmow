@@ -1,4 +1,5 @@
 import React,  { Component } from 'react';
+import { Link } from "react-router-dom";
 
 class Filmy extends Component {
     state = {};
@@ -10,7 +11,9 @@ class Filmy extends Component {
           <div class="card-body">
             <h5 class="card-title">Skazani na Shawshank</h5>
             <p class="card-text">Adaptacja opowiadania Stephena Kinga. Niesłusznie skazany na dożywocie bankier, stara się przetrwać w brutalnym, więziennym świecie.</p>
-            <a href="#" class="btn btn-primary">Pokaż w serwisie FILMWEB</a>
+            <Link to="/details">
+            <a href="#" class="btn btn-primary">Pokaż szczegóły</a>
+            </Link>
           </div>
         </div>
         </div>
