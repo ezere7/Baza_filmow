@@ -5,7 +5,7 @@ class Filmy extends Component {
     state = {};
 
     render(){
-        return <div style={{marginRight: "2%", float: "left", justifyContent: "center", display: "flex", float: "left", marginTop: "230px"}}>
+        return <div style={{marginRight: "2%", float: "left", justifyContent: "center", display: "flex", float: "left", marginTop: "120px"}}>
         <div class="card" style={{width: "18rem"}}>
           <img class="card-img-top" src="https://fwcdn.pl/fpo/10/48/1048/6925401.3.jpg" alt="Card image cap"/>
           <div class="card-body">

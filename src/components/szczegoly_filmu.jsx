@@ -6,7 +6,7 @@ class Szczegoly_filmu extends Component {
 
     render(){
         return <div >
-        <div style={{float: "left", marginTop: "200px", marginLeft: "2%",display: "flex", flexDirection: "row"}}>
+        <div style={{float: "left", marginTop: "70px", marginLeft: "2%",display: "flex", flexDirection: "row"}}>
                     <img class="img" src="https://fwcdn.pl/fpo/10/48/1048/6925401.3.jpg" />
                <div style={{ float: "left",display: "flex", flexDirection: "row", marginLeft: "2%", marginRight: "3%" }}>
                     <p>„Skazani na Shawshank” to film o nadziei, sile i zachowaniu człowieczeństwa w każdych warunkach – dzieło utrzymane w typowym klimacie amerykańskiego kina, a jednak uznawane za jeden z najważniejszych filmów lat 90., a zarazem za jedną z najlepszych adaptacji prozy Stephena Kinga. Wśród czynników o tym decydujących bez wątpienia należy wymienić wybitne aktorstwo. Tim Robbins jako główny bohater, Andy Dufresne, oraz Morgan Freeman jako Red stworzyli niezapomniane kreacje, wcielając się w więźniów, których połączyła niezwykła przyjaźń.

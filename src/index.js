@@ -21,7 +21,8 @@ import Szczegoly_filmu from './components/szczegoly_filmu'
 ReactDOM.render(
 <BrowserRouter>
       <React.StrictMode>
-        <div style={{ position: "fixed", top: 0, width: "100%", zIndex: 1}}>
+      }
+        <div style={{width: "100%", zIndex: 1}}>
             <Logo />
         <Wyszukiwarka />
         <Rejestracja />

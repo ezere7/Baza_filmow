@@ -5,7 +5,7 @@ class Logowanie_formularz extends Component {
     state = {};
 
     render(){
-        return <center> <div style={{width: "30%", marginTop: "15%"}}>
+        return <center> <div style={{width: "20%",position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)'}}>
                     <form>
                     <div class="mb-3">
                         <label for="disabledTextInput" class="form-label">Login</label>
