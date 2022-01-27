@@ -1,14 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Logo from './components/logo'
-import Wyszukiwarka from './components/wyszukiwarka'
-import Rejestracja from './components/rejestracja'
-import Logowanie from './components/logowanie'
-import Stopka from './components/stopka'
-import Filmy from './components/filmy'
 import Home from './components/home'
-
+import Naglowek from './components/naglowek'
+import Stopka from './components/stopka'
 import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 
@@ -21,22 +16,17 @@ import Szczegoly_filmu from './components/szczegoly_filmu'
 ReactDOM.render(
 <BrowserRouter>
       <React.StrictMode>
-      }
-        <div style={{width: "100%", zIndex: 1}}>
-            <Logo />
-        <Wyszukiwarka />
-        <Rejestracja />
-        <Logowanie />
+        <div style={{width: "100%", zIndex: 1, backgroundColor: "black"}}>
+            <Naglowek />
         </div>
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/signin' element={<Logowanie_formularz />} />
                     <Route path='/signup' element={<Rejestracja_formularz />} />
                     <Route path='/add' element={<Dodaj_film />} />
-                    <Route path='/details' element={<Szczegoly_filmu />} />
+                    <Route path='/details/:id' element={<Szczegoly_filmu />} />
                 </Routes>
         <Stopka />
-        <Przycisk_dodaj />
       </React.StrictMode>
 </BrowserRouter>,
   document.getElementById('root')

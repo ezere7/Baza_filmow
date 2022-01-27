@@ -1,15 +1,46 @@
-import React,  { Component } from 'react';
+import  React, { Component } from 'react';
 import Filmy from './filmy';
-import { Link } from "react-router-dom";
+
 
 class Home extends Component {
-    state = {};
+ constructor(props) {
+       super(props);
+       this.state = {
+           error: null,
+           isLoaded: false,
+           items: []
+       };
+   }
 
-    render(){
-        return <div style={{textAlign: 'center', display: "flex", flexWrap: "wrap", marginLeft: "4%", float: "left",
-        justifyContent: "space-between"}}> <Filmy /> <Filmy /> <Filmy /> <Filmy /> <Filmy /> <Filmy /> <Filmy /> <Filmy />
-        </div>
-        }
-    }
+   componentDidMount() {
+       fetch("https://pr-movies.herokuapp.com/api/movies")
+           .then(res => res.json())
+           .then(
+               (result) => {
+                   this.setState({
+                       isLoaded: true,
+                       items: result
+                   });
+                   console.log(result)
+               },
+
+               (error) => {
+                   this.setState({
+                       isLoaded: true,
+                       error
+                   });
+               }
+           )
+   }
+
+   render() {
+   const { items } = this.state;
+
+       return ( <div > <Filmy
+                 items={items}/> </div>
+)
+   }
+}
+
 
 export default Home;

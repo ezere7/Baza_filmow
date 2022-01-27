@@ -5,7 +5,7 @@ class Stopka extends Component {
 
     render(){
         return <div style={{position: "fixed", bottom: 0, right: "0", width: "100%", textAlign: "center"}}>
-                  <p>Mariusz Kurek, Programowanie reaktywne II - projekt ©</p>
+                  <p>Mariusz Kurek - Programowanie Reaktywne II PROJEKT ©</p>
                </div>
     }
 }

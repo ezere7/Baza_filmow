@@ -1,23 +1,38 @@
-import React,  { Component } from 'react';
+import  React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
-class Filmy extends Component {
-    state = {};
+const Filmy = ( props ) => {
 
-    render(){
-        return <div style={{marginRight: "2%", float: "left", justifyContent: "center", display: "flex", float: "left", marginTop: "120px"}}>
-        <div class="card" style={{width: "18rem"}}>
-          <img class="card-img-top" src="https://fwcdn.pl/fpo/10/48/1048/6925401.3.jpg" alt="Card image cap"/>
-          <div class="card-body">
-            <h5 class="card-title">Skazani na Shawshank</h5>
-            <p class="card-text">Adaptacja opowiadania Stephena Kinga. Niesłusznie skazany na dożywocie bankier, stara się przetrwać w brutalnym, więziennym świecie.</p>
-            <Link to="/details">
-            <a href="#" class="btn btn-primary">Pokaż szczegóły</a>
-            </Link>
-          </div>
-        </div>
-        </div>
-    }
+        const { items } = props;
+
+        return ( <div style={{
+                             display: "flex",
+                             zIndex: -1,
+                             width: "100%",
+                             height: "100%",
+                             position: "absolute",
+                             padding: 30,
+                             paddingTop: 50,
+                             paddingBottom: 50,
+                             flexWrap: "wrap",
+                             flexDirection: "row",
+                             position: "fixed",
+                             overflow: "scroll",
+                             justifyContent: "space-evenly",
+                             rowGap: 50,
+                             }}>
+        {items.map((item, key) =>
+            (
+                                <div class="card" style={{width: "18rem", marginTop: "6%" }}>
+                                  <img src= {item.image} class="card-img-top" alt="Brak zdjęcia do tego filmu" />
+                                  <div class="card-body">
+                                    <h5 class="card-title">{item.title}</h5>
+                                    <p class="card-text">{item.content}</p>
+                                    <Link to={"details/"+item.id}><a href="#" class="btn btn-primary">Pokaż szczegóły</a></Link>
+                                  </div>
+                                </div>))}
+                              </div> )
+
 }
 
 export default Filmy;

@@ -1,31 +1,118 @@
 import React,  { Component } from 'react';
 import { Link } from "react-router-dom";
+const axios = require('axios');
 
 class Rejestracja_formularz extends Component {
-    state = {};
+    state = {
+        account: {
+            username: "",
+            email: "",
+            password: ""
+        },
+        errors: {}
+    };
 
-    render(){
-        return <center> <div style={{width: "20%", position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)'}}>
-                    <form>
-                    <div class="mb-3">
-                        <label for="disabledTextInput" class="form-label">Login</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Podaj login" />
+    handleChangeRoute = () => {
+        window.location.reload();
+    };
+
+    validate = () => {
+        const errors = {};
+
+        const {account} = this.state;
+        if (account.username.trim() === '') {
+            errors.username = 'Uzupełnij pole';
+        }
+        if (account.email.trim() === '') {
+            errors.password = 'Uzupełnij pole';
+        }
+        if (account.password.trim() === '') {
+            errors.password = 'Uzupełnij pole';
+        }
+
+        return Object.keys(errors).length === 0 ? null : errors;
+    };
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+
+        const errors = this.validate();
+        this.setState({errors: errors || {}});
+        if (errors) return;
+
+        console.log(this.state)
+
+        axios({
+            method: 'post',
+            url: 'https://pr-movies.herokuapp.com/api/user/create',
+            data: {
+                name: this.state.account.username,
+                email: this.state.account.email,
+                password: this.state.account.password
+            }
+        }).then((response) => {
+            this.handleChangeRoute();
+        }).catch((error) => {
+            const errors = {};
+            errors.password = 'Błąd podczas tworzenia konta';
+            this.setState({errors: errors || {}});
+            console.log(error);
+        });
+    };
+
+    handleChange = (event) => {
+        const account = {...this.state.account};
+        account[event.currentTarget.name] = event.currentTarget.value;
+        this.setState({account});
+    };
+
+    render() {
+        return (
+            <div style={{width: "20%", position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)'}}>
+                <form onSubmit={this.handleSubmit}>
+                    <div className="form-group" style={{marginTop: "5%"}}>
+                        <label htmlFor="username">Nazwa</label>
+                        <input value={this.state.account.username}
+                               name="username"
+                               onChange={this.handleChange}
+                               type="text"
+                               className="form-control"
+                               id="username"
+                               aria-describedby="emailHelp"
+                               placeholder="Nazwa"/>
+                        {this.state.errors.username &&
+                        <div className="alert alert-danger">{this.state.errors.username}</div>}
                     </div>
-                    <div class="mb-3">
-                        <label for="disabledTextInput2" class="form-label">Nazwa</label>
-                        <input type="text" id="disabledTextInput2" class="form-control" placeholder="Podaj nazwę" />
+                    <div className="form-group" style={{marginTop: "5%"}}>
+                        <label htmlFor="email">Email</label>
+                        <input value={this.state.account.email}
+                               name="email"
+                               onChange={this.handleChange}
+                               type="email"
+                               className="form-control"
+                               id="email"
+                               aria-describedby="emailHelp"
+                               placeholder="Email"/>
+                        {this.state.errors.email &&
+                        <div className="alert alert-danger">{this.state.errors.email}</div>}
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="text" id="exampleInputEmail1" class="form-control" placeholder="Podaj email" />
+                    <div className="form-group" style={{marginTop: "5%"}}>
+                        <label htmlFor="password">Hasło</label>
+                        <input value={this.state.account.password}
+                               name="password"
+                               onChange={this.handleChange}
+                               type="password"
+                               className="form-control"
+                               id="password"
+                               placeholder="Hasło"/>
+                        {this.state.errors.password &&
+                        <div className="alert alert-danger">{this.state.errors.password}</div>}
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Haslo</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Podaj hasło"/>
-                      </div>
-                      <button type="submit" class="btn btn-primary">Zarejestruj się</button>
-                    </form>
-               </div> </center>
+                    <button type="submit" className="btn btn-primary" style={{marginLeft: "30%", marginTop: "10%"}}>Zarejestruj się</button>
+                </form>
+
+            </div>
+        );
     }
 }
 
