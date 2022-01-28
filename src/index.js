@@ -16,7 +16,7 @@ import Szczegoly_filmu from './components/szczegoly_filmu'
 ReactDOM.render(
 <BrowserRouter>
       <React.StrictMode>
-        <div style={{width: "100%", zIndex: 1, backgroundColor: "black"}}>
+        <div style={{width: "100%"}}>
             <Naglowek />
         </div>
                 <Routes>

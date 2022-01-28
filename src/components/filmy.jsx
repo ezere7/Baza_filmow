@@ -5,22 +5,10 @@ const Filmy = ( props ) => {
 
         const { items } = props;
 
-        return ( <div style={{
-                             display: "flex",
-                             zIndex: -1,
-                             width: "100%",
-                             height: "100%",
-                             position: "absolute",
-                             padding: 30,
-                             paddingTop: 50,
-                             paddingBottom: 50,
-                             flexWrap: "wrap",
-                             flexDirection: "row",
-                             position: "fixed",
-                             overflow: "scroll",
-                             justifyContent: "space-evenly",
-                             rowGap: 50,
-                             }}>
+        return ( <div style={{display: "flex",zIndex: -1,width: "100%",height: "100%",position: "absolute",padding: 30,
+                             paddingTop: 50, paddingBottom: 50,flexWrap: "wrap",flexDirection: "row",position: "fixed",
+                             overflow: "scroll",justifyContent: "space-evenly",rowGap: 50}}>
+
         {items.map((item, key) =>
             (
                                 <div class="card" style={{width: "18rem", marginTop: "6%" }}>
